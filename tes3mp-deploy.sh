@@ -9,7 +9,7 @@ TES3MP_STABLE_VERSION_FILE="0.47.0\n68954091c54d0596037c4fb54d2812313b7582a1"
 TES3MP_FORGE_VERSION="2.4.0"
 
 HELP_TEXT_HEADER="\
-TES3MP-deploy ($VERSION)
+TES3MP-mumble-deploy ($VERSION)
 Grim Kriegor <grim@kriegor.net>
 Licensed under the GNU GPLv3 free license
 "
@@ -286,7 +286,7 @@ if [ $SCRIPT_UPGRADE ]; then
   else
     echo -e "\n>>Downloading TES3MP-deploy from GitHub"
     mv "$0" "$SCRIPT_BASE"/.tes3mp-deploy.sh.bkp
-    wget --no-verbose -O "$SCRIPT_BASE"/tes3mp-deploy.sh https://raw.githubusercontent.com/GrimKriegor/TES3MP-deploy/master/tes3mp-deploy.sh
+    wget --no-verbose -O "$SCRIPT_BASE"/tes3mp-deploy.sh https://raw.githubusercontent.com/FakeSalamnder/TES3MP-mumble-deploy/master/tes3mp-deploy.sh
     chmod +x "$SCRIPT_BASE"/tes3mp-deploy.sh
   fi
 
@@ -496,7 +496,7 @@ press ENTER to continue"
 
   # Pull software via git
   echo -e "\n>> Downloading software"
-  ! [ -e "$CODE" ] && git clone -b "${TARGET_COMMIT:-master}" https://github.com/TES3MP/TES3MP.git "$CODE"
+  ! [ -e "$CODE" ] && git clone https://github.com/TES3MP/TES3MP-mumble.git "$CODE"
   ! [ -e "$DEPENDENCIES"/raknet ] && git clone https://github.com/TES3MP/CrabNet "$DEPENDENCIES"/raknet
   ! [ -e "$KEEPERS"/CoreScripts ] && git clone -b "${TARGET_COMMIT:-master}" https://github.com/TES3MP/CoreScripts.git "$KEEPERS"/CoreScripts
 

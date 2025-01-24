@@ -1,6 +1,6 @@
-# TES3MP-deploy
+# TES3MP-mumble-deploy
 
-Script that simplifies the installation, upgrade and packaging of TES3MP
+Script that simplifies the installation, upgrade and packaging of TES3MP-mumble
 
 
 ## Usage
@@ -17,6 +17,8 @@ Can be used in conjunction with [TES3MP-forge](https://github.com/GrimKriegor/TE
 
 
 ## Attribution
+
+Thank you to GrimKriegor for the original TES3MP-deploy script.
 
 Big thanks to Testman, Shnatsel, Shatur and the TES3MP community for their intense testing, debugging contributions and suggestions.
 

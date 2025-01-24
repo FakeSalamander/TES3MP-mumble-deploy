@@ -461,7 +461,7 @@ press ENTER to continue"
 
   # Pull software via git
   echo -e "\n>> Downloading software"
-  ! [ -e "$CODE" ] && git clone https://github.com/TES3MP/TES3MP-mumble.git "$CODE"
+  ! [ -e "$CODE" ] && git clone https://github.com/FakeSalamander/TES3MP-mumble.git "$CODE"
   ! [ -e "$DEPENDENCIES"/raknet ] && git clone https://github.com/TES3MP/CrabNet "$DEPENDENCIES"/raknet
   ! [ -e "$KEEPERS"/CoreScripts ] && git clone -b "${TARGET_COMMIT:-master}" https://github.com/TES3MP/CoreScripts.git "$KEEPERS"/CoreScripts
 

@@ -273,41 +273,6 @@ if [ $CMAKE_LOCAL ]; then
 fi
 
 # Upgrade the TES3MP-deploy script
-if [ $SCRIPT_UPGRADE ]; then
-
-  SCRIPT_OLD_VERSION=$(cat "$SCRIPT_BASE"/tes3mp-deploy.sh | grep ^VERSION= | cut -d'"' -f2)
-
-  if [ -d "$SCRIPT_BASE"/.git ]; then
-    echo -e "\n>>Upgrading the TES3MP-deploy git repository"
-    cd "$SCRIPT_BASE"
-    git stash
-    git pull
-    cd "$BASE"
-  else
-    echo -e "\n>>Downloading TES3MP-deploy from GitHub"
-    mv "$0" "$SCRIPT_BASE"/.tes3mp-deploy.sh.bkp
-    wget --no-verbose -O "$SCRIPT_BASE"/tes3mp-deploy.sh https://raw.githubusercontent.com/FakeSalamnder/TES3MP-mumble-deploy/master/tes3mp-deploy.sh
-    chmod +x "$SCRIPT_BASE"/tes3mp-deploy.sh
-  fi
-
-  SCRIPT_NEW_VERSION=$(cat "$SCRIPT_BASE"/tes3mp-deploy.sh | grep ^VERSION= | cut -d'"' -f2)
-
-  if [ "$SCRIPT_NEW_VERSION" == "" ]; then
-    echo -e "\nThere was a problem downloading the script, exiting."
-    exit 1
-  fi
-
-  if [ "$SCRIPT_OLD_VERSION" != "$SCRIPT_NEW_VERSION" ]; then
-    echo -e "\nScript upgraded from ($SCRIPT_OLD_VERSION) to ($SCRIPT_NEW_VERSION)"
-    echo -e "\nReloading...\n"
-    SCRIPT_ARGS_TRUNC="$(echo "$SCRIPT_ARGS" | sed 's/--script-upgrade//g;s/-y//g')"
-    eval $(which bash) "$0 $SCRIPT_ARGS_TRUNC"
-    exit 0
-  else
-    echo -e "\nScript already at the latest avaliable version ($SCRIPT_OLD_VERSION)"
-  fi
-
-fi
 
 # Install mode
 if [ $INSTALL ]; then
